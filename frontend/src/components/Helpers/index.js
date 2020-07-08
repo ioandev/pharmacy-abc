@@ -1,0 +1,1 @@
+export const concatenateName = (x) => `${x.firstName} ${x.lastName}`
