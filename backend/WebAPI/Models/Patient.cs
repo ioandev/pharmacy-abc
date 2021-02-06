@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace WebAPI.Models
@@ -20,6 +21,7 @@ namespace WebAPI.Models
         public string Gender { get; set; }
 
         [Required]
+        [Column(TypeName = "date")]
         public DateTime DateOfBirth { get; set; }
 
         [Required]

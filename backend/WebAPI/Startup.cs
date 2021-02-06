@@ -5,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAPI.Repositories;
+using System;
+using System.Collections.Generic;
+using MySql.Data.EntityFrameworkCore.DataAnnotations;
 
 namespace WebAPI
 {
@@ -25,7 +28,8 @@ namespace WebAPI
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-            services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(x => x.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<IConsultationRepository, ConsultationRepository>();
             services.AddControllers();

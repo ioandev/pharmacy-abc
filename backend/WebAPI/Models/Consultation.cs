@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Models
 {
@@ -26,6 +27,7 @@ namespace WebAPI.Models
         [Required]
         public string Comments { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime OccurredAt { get; set; } = DateTime.UtcNow;
     }
 }
